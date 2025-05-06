@@ -1,10 +1,19 @@
+import FeaturedResources from "./Pages/FeaturedResources";
+import Ourdesign from "./Pages/Ourdesign";
+import OurRecentCaseStudies from "./Pages/OurRecentCaseStudies";
+import MeetThePeople from "./Pages/MeetThePeople";
+import GreatSoftware from "./Pages/GreatSoftware";
+import TechStack from "./Pages/TechStack";
 function App() {
   return (
-    <div className="bg-green-500">
-      <h1 className="text-3xl font-bold underline text-center text-white">
-        hello world
-      </h1>
-    </div>
+    <>
+      <FeaturedResources />
+      <Ourdesign />
+      <OurRecentCaseStudies />
+      <MeetThePeople />
+      <GreatSoftware />
+      <TechStack />
+    </>
   );
 }
 
