@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gidole&family=Outfit:wght@100..900&family=Prata&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,4 +11,31 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
   }
-  
+
+/* * {
+  font-family: outfit;
+} */
+
+.prata-regular {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.gidole-regular {
+  font-family: "Gidole", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-gradient1 {
+  background: linear-gradient(to right, #DE4396, #0D1C9F);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient2 {
+  background: linear-gradient(to right, #F7666F, #406AFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

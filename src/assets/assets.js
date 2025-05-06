@@ -23,6 +23,14 @@ import nodejs from './NodeJS.svg'
 import PHP from './PHP.svg'
 import Ruby from './RubyOnRails.svg'
 import go from './Go.svg'
+import logo from "./logo.png";
+import menu_icon from "./menu_icon.png";
+import cross_icon from "./cross_icon.svg";
+import hero_img from "./hero_img.png";
+import fb from "./fb.svg";
+import code from "./code.png";
+import left_arrow from "./left_arrow.svg";
+import right_arrow from "./right_arrow.svg";
 
 export const assets = {
     FeaturedResources1,
@@ -47,10 +55,62 @@ export const assets = {
     nodejs,
     PHP,
     Ruby,
-    go
+    go,
+    logo,
+    menu_icon,
+    cross_icon,
+    hero_img,
+    fb,
+    code,
+    left_arrow,
+    right_arrow
 };
 
+export const services = [
+    {
+      image: code,
+      title: "Mobile App Development",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    },
+  
+    {
+      image: code,
+      title: "Web design & Development",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    },
+  
+    {
+      image: code,
+      title: "Software Testing Service",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    },
+  
+    {
+      image: code,
+      title: "Mobile App Development",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    },
+  
+    {
+      image: code,
+      title: "Web design & Development",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    },
+  
+    {
+      image: code,
+      title: "Software Testing Service",
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+    },
+  ];
 
+  
 export const featureResources = [
     {
         id: 1,
