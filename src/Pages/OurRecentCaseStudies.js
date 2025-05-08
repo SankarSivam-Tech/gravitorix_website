@@ -9,7 +9,7 @@ const OurRecentCaseStudies = () => {
         <section className="bg-[#F7F7FA] py-12">
             <div className="text-center mb-10 flex flex-col items-center justify-center">
                 <div className="w-20 h-1 bg-purple-600 mb-2 rounded-full"></div>
-                <Header text1="Way of building" text2="Great Software" />
+                <Header text1="Our Recent" text2="Case Studies" />
             </div>
 
             {caseStudies.map((item, index) => (

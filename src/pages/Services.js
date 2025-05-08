@@ -75,7 +75,7 @@ const Services = () => {
                   {service.title}
                 </h3>
 
-                <p className="p-4 text-gray-400 text-sm ">
+                <p className="p-4 text-gray-400 text-md ">
                   {service.description}
                 </p>
               </motion.section>
