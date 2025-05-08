@@ -4,8 +4,7 @@ import { assets } from "../assets/assets";
 const HireDevelopers = () => {
   return (
     <div className="flex flex-col sm:flex-row  px-14 py-8 md:py-20 my-10 rounded-2xl bg-gradient-to-r from-[#E4ECF7] to-[#f1f1f5]">
-      {/* left side */}
-      <div className="w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0">
+       <div className="w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0">
         <p className="  text-3xl lg:text-4xl font-semibold">
           Hire the best developers and designers around!
         </p>

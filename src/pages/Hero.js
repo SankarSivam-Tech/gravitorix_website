@@ -4,8 +4,7 @@ import { assets } from "../assets/assets";
 const Hero = () => {
   return (
     <div className="flex flex-col sm:flex-row ">
-      {/* Hero LeftSide */}
-      <div className="w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0">
+       <div className="w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0">
         <div className=" gidole-regular">
           <p className=" text-3xl lg:text-5xl ">
             Great <span className="text-gradient1 font-semibold">Product</span>{" "}

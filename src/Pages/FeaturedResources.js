@@ -10,7 +10,7 @@ const FeaturedResources = () => {
     const [scrollLeft, setScrollLeft] = useState(0);
 
     const handleMouseDown = (e) => {
-        e.preventDefault(); 
+        e.preventDefault();
         setIsDragging(true);
         setStartX(e.clientX);
         setScrollLeft(containerRef.current.scrollLeft);
@@ -19,7 +19,7 @@ const FeaturedResources = () => {
     const handleMouseMove = (e) => {
         if (!isDragging) return;
         const x = e.clientX;
-        const walk = (x - startX) * 1.5; 
+        const walk = (x - startX) * 1.5;
         containerRef.current.scrollLeft = scrollLeft - walk;
     };
 
@@ -32,13 +32,14 @@ const FeaturedResources = () => {
     };
 
     return (
-        <div className="relative">
-            <div className="mb-6 text-center">
-        <Header text1="Featured" text2="Resources" />
+        <div className="relative ">
+            <div className='text-center mb-10 flex flex-col items-center justify-center'>
+                <div className="w-20 h-1 bg-purple-600 mb-2 rounded-full"></div>
+                <Header text1="Featured" text2="Resources" />
             </div>
             <div
                 ref={containerRef}
-                className="flex gap-4 mt-8 overflow-x-hidden p-4 cursor-grab " 
+                className="flex gap-4 mt-8 overflow-x-hidden p-4 cursor-grab "
                 onMouseDown={handleMouseDown}
                 onMouseMove={handleMouseMove}
                 onMouseUp={handleMouseUp}

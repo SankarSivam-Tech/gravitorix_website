@@ -5,7 +5,8 @@ import { ourDesign } from '../assets/assets';
 const OurDesign = () => {
     return (
         <div className="bg-[#F7F7FA] min-h-screen px-4 sm:px-6 lg:px-8 py-12 overflow-x-hidden">
-            <div className="mb-6 text-center">
+              <div className='text-center mb-10 flex flex-col items-center justify-center'>
+              <div className="w-20 h-1 bg-purple-600 mb-2 rounded-full"></div>
                 <Header text1="Our design and " text2="development approach" />
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10 max-w-full sm:max-w-6xl mx-auto justify-items-center">

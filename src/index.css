@@ -39,3 +39,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+.clip-bottom {
+  clip-path: ellipse(50% 50% at 50% 100%);
+}

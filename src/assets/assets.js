@@ -32,6 +32,17 @@ import code from "./code.png";
 import left_arrow from "./left_arrow.svg";
 import right_arrow from "./right_arrow.svg";
 
+import heart from './Heart_rate_perspective_matte.svg';
+import lock from './Padlock_perspective_matte.svg'
+import Code from './Code_perspective_matte.svg';
+import shield from './Shield_perspective_matte.svg'
+import success from './Success_perspective_matte (1).svg'
+import timcook from './timcook.jpeg';
+import satya_nadella from './satya nadella.jpeg';
+import sundarpichai from './sundar pichai.jpeg';
+
+import { FaMobileAlt, FaLaptopCode, FaBug, FaCloud, FaCogs, FaLightbulb } from "react-icons/fa";
+
 export const assets = {
     FeaturedResources1,
     Rocket,
@@ -63,50 +74,58 @@ export const assets = {
     fb,
     code,
     left_arrow,
-    right_arrow
+    right_arrow,
+     heart,
+    lock,
+    Code,
+    shield,
+    success,
+    satya_nadella,
+    timcook,
+    sundarpichai
 };
 
 export const services = [
     {
-      image: code,
+      image: <FaMobileAlt size={40} color="#DE4396" />,
       title: "Mobile App Development",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "Big or small, we create mobile apps that are tailored to your business and designed to grow with you."
     },
   
     {
-      image: code,
+      image: <FaLaptopCode size={40} color="#DE4396" />,
       title: "Web design & Development",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "From startups to enterprises, we build websites that are modern, responsive, and built to impress.",
     },
   
     {
-      image: code,
+      image: <FaBug size={40} color="#DE4396" />,
       title: "Software Testing Service",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "No matter the scale, we ensure your software is reliable, secure, and ready to perform.",
     },
   
     {
-      image: code,
-      title: "Mobile App Development",
+      image: <FaLightbulb size={40} color="#DE4396" />,
+      title: "Product Development",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "From concept to launch, we help you build innovative products that solve real-world problems and drive business success.",
     },
   
     {
-      image: code,
-      title: "Web design & Development",
+      image: <FaCloud size={40} color="#DE4396" />,
+      title: "Cloud Integration Services",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "Whether you're starting small or scaling big, we make cloud integration seamless and efficient.",
     },
   
     {
-      image: code,
-      title: "Software Testing Service",
+      image: <FaCogs size={40} color="#DE4396" />,
+      title: "DevOps and Automation",
       description:
-        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
+        "For every business, we streamline processes to deliver faster, smarter, and more reliable solutions.",
     },
   ];
 
@@ -195,43 +214,43 @@ export const ourDesign = [
         img: Rocket,
         bgColor: "bg-black",
         title: "UX driven engineering",
-        description: "Unlike other companies, we are a UX first development company. Projects are driven by designers and they make sure design and experiences translate to code.",
-    },
+        description:
+        "We prioritize user experience at every step, ensuring that designs seamlessly translate into functional and intuitive code."    },
     {
         id: 2,
-        img: Rocket,
-        bgColor: "bg-black",
+        img: Code,
+        bgColor: "bg-gradient-to-r from-[#68DBF2] to-[#509CF5]",
         title: " Developing Shared Understanding",
-        description: "Unlike other companies, we are a UX first development company. Projects are driven by designers and they make sure design and experiences translate to code.",
-    },
+        description:
+        "Our collaborative approach bridges the gap between designers and developers, fostering a shared vision for project success."    },
     {
         id: 3,
-        img: Rocket,
-        bgColor: "bg-black",
+        img: heart,
+        bgColor: "bg-gradient-to-r from-[#FF92AE] to-[#FF3D9A]",
         title: " Proven Experience and Expertise",
-        description: "Unlike other companies, we are a UX first development company. Projects are driven by designers and they make sure design and experiences translate to code.",
-    },
+        description:
+        "With years of experience, our team delivers innovative solutions backed by technical expertise and industry knowledge."    },
     {
         id: 4,
-        img: Rocket,
-        bgColor: "bg-black",
+        img: shield,
+        bgColor: "bg-gradient-to-r from-[#67E9F1] to-[#24E795]",
         title: "Security & Intellectual Property (IP)",
-        description: "Unlike other companies, we are a UX first development company. Projects are driven by designers and they make sure design and experiences translate to code.",
-    },
+        description:
+        "We ensure your projects are secure and your intellectual property is protected throughout the development process."    },
     {
         id: 5,
-        img: Rocket,
-        bgColor: "bg-black",
+        img: success,
+        bgColor: "bg-gradient-to-r from-[#F7936F] to-[#FFEF5E]",
         title: " Code Reviews",
-        description: "Unlike other companies, we are a UX first development company. Projects are driven by designers and they make sure design and experiences translate to code.",
-    },
+        description:
+        "Our rigorous code review process guarantees high-quality, maintainable, and efficient code for every project."    },
     {
         id: 6,
-        img: Rocket,
-        bgColor: "bg-black",
+        img: lock, 
+        bgColor: "bg-gradient-to-r from-[#57007B] to-[#F76680]",
         title: " Quality Assurance & Testing",
-        description: "Unlike other companies, we are a UX first development company. Projects are driven by designers and they make sure design and experiences translate to code.",
-    },
+        description:
+        "We deliver reliable and bug-free solutions through comprehensive quality assurance and testing practices."    },
 ]
 
 export const caseStudies = [
@@ -269,36 +288,7 @@ export const logos = [
     { img: logo7 },
 ];
 
-
-export const greatSoftware = [
-    {
-        id: 1,
-        img: GreatSoftware,
-        title: "Build the right team to scale",
-        icon:Profile,
-        author:"Jeewa markram",
-         quotes:"Simform is quick to identify larger problems with the software so we decided to expand our scope to build new modules",
-        description: "Finding the right talent is not easy. We help you find the talent that suits your needs, follows your processes, and sticks with you long term (not the case with freelancers).",
-    },
-    {
-        id: 2,
-        img: GreatSoftware1,
-        title: "Build the right team to scale",
-        icon:Profile,
-        author:"Jeewa markram",
-         quotes:"Simform is quick to identify larger problems with the software so we decided to expand our scope to build new modules",
-        description: "Finding the right talent is not easy. We help you find the talent that suits your needs, follows your processes, and sticks with you long term (not the case with freelancers).",
-    },
-    {
-        id: 3,
-        img: GreatSoftware2,
-        title: "Build the right team to scale",
-        icon:Profile,
-        author:"Jeewa markram",
-         quotes:"Simform is quick to identify larger problems with the software so we decided to expand our scope to build new modules",
-        description: "Finding the right talent is not easy. We help you find the talent that suits your needs, follows your processes, and sticks with you long term (not the case with freelancers).",
-    },
-]
+ 
 
 
 export const techStack = [

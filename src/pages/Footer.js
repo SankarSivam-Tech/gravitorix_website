@@ -43,8 +43,7 @@ const Footer = () => {
             <li>+919876543210</li>
             <li>contact@gravitorix.com</li>
           </ul>
-          {/* social links */}
-          <div className="flex justify-end items-center gap-4 mt-10">
+           <div className="flex justify-end items-center gap-4 mt-10">
             <FaFacebookF className="text-3xl p-2 bg-white rounded-full shadow-lg cursor-pointer " />
             <FaInstagram className="text-3xl p-2 bg-white rounded-full shadow-lg cursor-pointer" />
             <FaXTwitter className="text-3xl p-2 bg-white rounded-full shadow-lg cursor-pointer" />
