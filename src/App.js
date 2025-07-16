@@ -9,6 +9,7 @@ import Services from './Pages/Services'
 import HireDevelopers from './Pages/HireDevelopers'
 import Footer from './Pages/Footer'
 import Hero from './Pages/Hero'
+import Timeline from "./Pages/TimeLine";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <GreatSoftware />
       <Ourdesign />
       <TechStack />
+      <Timeline />
       <FeaturedResources />
       <HireDevelopers/>
       <Footer/>
