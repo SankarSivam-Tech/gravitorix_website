@@ -43,11 +43,11 @@ const TechStack = () => {
           ease: [0.25, 0.8, 0.25, 1],
         }}
       >
-        <div className="grid grid-cols-5 gap-10 px-6 max-w-7xl mx-auto mb-10">
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-8 px-6 max-w-6xl mx-auto mb-8">
         {firstRow.map(({ name, image }, index) => (
             <motion.div
               key={index}
-              className="flex flex-col items-center"
+              className="flex flex-col items-center group cursor-pointer"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
@@ -57,37 +57,45 @@ const TechStack = () => {
                 ease: [0.25, 0.8, 0.25, 1],
               }}
             >
-              <img
-                src={image}
-                alt={name}
-                className="w-full max-w-[100px] sm:max-w-[150px] md:max-w-[150px] lg:max-w-[180px] object-contain mb-2"
-              />
+              <div className="p-4 rounded-lg bg-gray-50 group-hover:bg-purple-50 transition-colors duration-300">
+                <img
+                  src={image}
+                  alt={name}
+                  className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
+                />
+              </div>
+              <span className="text-xs sm:text-sm text-gray-600 mt-2 text-center">{name}</span>
             </motion.div>
           ))}
         </div>
 
-        <div className="grid grid-cols-5 gap-10 px-6 max-w-7xl mx-auto mb-10">
-          {secondRow.map(({ name, image }, index) => (
-            <motion.div
-              key={index}
-              className="flex flex-col items-center"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -20, opacity: 0 }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.1,
-                ease: [0.25, 0.8, 0.25, 1],
-              }}
-            >
-              <img
-                src={image}
-                alt={name}
-                className="w-full max-w-[100px] sm:max-w-[120px] md:max-w-[150px] lg:max-w-[180px] object-contain mb-2"
-              />
-            </motion.div>
-          ))}
-        </div>
+        {secondRow.length > 0 && (
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-8 px-6 max-w-6xl mx-auto">
+            {secondRow.map(({ name, image }, index) => (
+              <motion.div
+                key={index}
+                className="flex flex-col items-center group cursor-pointer"
+                initial={{ y: 20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -20, opacity: 0 }}
+                transition={{
+                  duration: 0.6,
+                  delay: (firstRow.length + index) * 0.1,
+                  ease: [0.25, 0.8, 0.25, 1],
+                }}
+              >
+                <div className="p-4 rounded-lg bg-gray-50 group-hover:bg-purple-50 transition-colors duration-300">
+                  <img
+                    src={image}
+                    alt={name}
+                    className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 object-contain"
+                  />
+                </div>
+                <span className="text-xs sm:text-sm text-gray-600 mt-2 text-center">{name}</span>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </motion.div>
     </div>
   );
