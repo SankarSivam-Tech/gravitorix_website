@@ -1,37 +1,36 @@
-import FeaturedResources from "./Pages/FeaturedResources";
-import Ourdesign from "./Pages/Ourdesign";
-import OurRecentCaseStudies from "./Pages/OurRecentCaseStudies";
-import MeetThePeople from "./Pages/MeetThePeople";
-import GreatSoftware from "./Pages/GreatSoftware";
-import TechStack from "./Pages/TechStack";
-import Navbar from './Components/Navbar'
-import Services from './Pages/Services'
-import HireDevelopers from './Pages/HireDevelopers'
-// import Footer from './Pages/Footer'
-import Hero from './Pages/Hero'
-import TimeLine from "./Pages/TimeLine/TimeLine";
-import AboutUs from "./Pages/About";
-import ContactFooter from "./Pages/ContactFooter";
+import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import Navbar from './Components/Navbar';
+import HomePage from './Pages/HomePage';
+import AboutPage from './Pages/AboutPage';
+import ServicesPage from './Pages/ServicesPage';
+import ContactPage from './Pages/ContactPage';
+import NotFound from './Pages/NotFound';
+import ScrollToTop from './Components/ScrollToTop';
+import BackToTop from './Components/BackToTop';
 
 function App() {
+  useEffect(() => {
+    // Add smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
+  }, []);
+
   return (
     <>
-      <div className="px-4 sm:px-[5vw] md:px-[5vw] lg:px-[9vw]">
-     <Navbar />
-      <Hero/>
-      <AboutUs />
-      <Services/>
-      <MeetThePeople />
-      <OurRecentCaseStudies />
-      <GreatSoftware />
-      <Ourdesign />
-      <TechStack />
-      <TimeLine />
-      <FeaturedResources />
-      <HireDevelopers/>
-      {/* <Footer/> */}
-      <ContactFooter/>
-    </div>
+      <ScrollToTop />
+      <div className="min-h-screen">
+        <div className=" ">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={<ServicesPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </div>
+        <BackToTop />
+      </div>
     </>
   );
 }
