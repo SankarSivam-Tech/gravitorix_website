@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import Services from './Services';
 import TechStack from './TechStack';
 import Ourdesign from './Ourdesign';
-import ContactFooter from './ContactFooter';
 
 const ServicesPage = () => {
   return (
@@ -14,7 +13,6 @@ const ServicesPage = () => {
       <Services />
       <TechStack />
       <Ourdesign />
-      <ContactFooter />
     </motion.div>
   );
 };

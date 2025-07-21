@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import { 
   Mail, 
   Phone, 
@@ -8,19 +9,94 @@ import {
   Linkedin, 
   Youtube,
   Send,
-  Heart
+  Heart,
+  CheckCircle,
+  AlertCircle
 } from 'lucide-react';
 
 const ContactFooter = () => {
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [notification, setNotification] = useState({ show: false, type: '', message: '' });
 
-  const handleSubmit = (e) => {
+  // Initialize EmailJS when component mounts
+  useEffect(() => {
+    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+    
+    if (publicKey) {
+      emailjs.init(publicKey);
+    }
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Contact form submitted:', { email, message });
-    setEmail('');
-    setMessage('');
-    alert('Thank you for reaching out! We\'ll get back to you soon.');
+    setLoading(true);
+    setNotification({ show: false, type: '', message: '' });
+
+
+    try {
+      // Template parameters for EmailJS
+      const templateParams = {
+        from_name: name || 'Website Visitor',
+        from_email: email,
+        message: message,
+        to_email: process.env.REACT_APP_EMAILJS_TO_EMAIL || 'contact@gravitorix.com',
+        reply_to: email,
+        timestamp: new Date().toISOString(),
+        // Additional parameters to ensure data is captured
+        user_name: name || 'Website Visitor',
+        user_email: email,
+        contact_name: name || 'Website Visitor',
+        contact_email: email,
+        sender_name: name || 'Website Visitor',
+        sender_email: email,
+      };
+
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      );
+
+      
+      // Show success notification
+      setNotification({
+        show: true,
+        type: 'success',
+        message: 'Thank you for reaching out! We\'ll get back to you soon.'
+      });
+      
+      // Clear inputs
+      setName('');
+      setEmail('');
+      setMessage('');
+      
+      // Hide notification after 5 seconds
+      setTimeout(() => {
+        setNotification({ show: false, type: '', message: '' });
+      }, 5000);
+      
+    } catch (error) {
+      
+      // Show error notification
+      setNotification({
+        show: true,
+        type: 'error',
+        message: 'Failed to send message. Please try again or email us directly.'
+      });
+      
+      // Hide notification after 5 seconds
+      setTimeout(() => {
+        setNotification({ show: false, type: '', message: '' });
+      }, 5000);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -34,13 +110,39 @@ const ContactFooter = () => {
             Have a project in mind or want to discuss how we can help? Drop us a message and we'll get back to you.
           </p>
           <form onSubmit={handleSubmit} className="max-w-md mx-auto space-y-4">
+            {notification.show && (
+              <div className={`p-4 rounded-lg flex items-center gap-3 ${
+                notification.type === 'success' 
+                  ? 'bg-green-100 text-green-800' 
+                  : 'bg-red-100 text-red-800'
+              }`}>
+                {notification.type === 'success' ? (
+                  <CheckCircle className="w-5 h-5 flex-shrink-0" />
+                ) : (
+                  <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                )}
+                <p className="text-sm">{notification.message}</p>
+              </div>
+            )}
+            
+            {/* Optional Name Field */}
+            <input 
+              type="text" 
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder="Your name (optional)"
+              disabled={loading}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+            />
+            
             <input 
               type="email" 
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Your email address"
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              disabled={loading}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
             />
             <textarea
               value={message}
@@ -48,14 +150,25 @@ const ContactFooter = () => {
               placeholder="Tell us about your project or how we can help..."
               rows="3"
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+              disabled={loading}
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent resize-none disabled:opacity-50 disabled:cursor-not-allowed"
             />
             <button 
               type="submit"
-              className="w-full px-6 py-3 bg-pink-500 text-white rounded-lg hover:bg-pink-600 transition-colors flex items-center justify-center gap-2"
+              disabled={loading}
+              className="w-full px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <Send className="w-5 h-5" />
-              Send Message
+              {loading ? (
+                <>
+                  <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Send className="w-5 h-5" />
+                  Send Message
+                </>
+              )}
             </button>
           </form>
         </div>
@@ -104,11 +217,11 @@ const ContactFooter = () => {
             <div className="space-y-4">
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                <span className="text-gray-600">Raj Studio in front of KFC Blue Color House, Kovilpatti</span>
+                <span className="text-gray-600">Raj Studio in front of KFC yellow color House, Kovilpatti</span>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-5 h-5 text-blue-600 flex-shrink-0" />
-                <a href="tel:+15551234567" className="text-gray-600 hover:text-blue-600 transition-colors">+1 (555) 123-4567</a>
+                <a href="tel:+91 73490 12242" className="text-gray-600 hover:text-blue-600 transition-colors">+91 73490 12242</a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-blue-600 flex-shrink-0" />
@@ -120,7 +233,7 @@ const ContactFooter = () => {
 
         <div className="border-t border-gray-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-500 text-sm flex items-center">
-            Made with <Heart className="w-4 h-4 text-red-500 mx-1" /> by Your Company © 2025
+            Made with <Heart className="w-4 h-4 text-red-500 mx-1" /> by Gravitorix © 2025
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <a href="#" className="text-gray-500 hover:text-gray-700 text-sm">Privacy Policy</a>

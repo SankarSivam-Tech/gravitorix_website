@@ -1,7 +1,13 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cp:*)"
+      "Bash(cp:*)",
+      "Bash(if [ -f .gitignore ])",
+      "Bash(then echo \"exists\")",
+      "Bash(else echo \"not exists\")",
+      "Bash(fi)",
+      "Bash(npm install:*)",
+      "Bash(grep:*)"
     ],
     "deny": []
   }

@@ -173,92 +173,122 @@ export const featureResources = [
   {
     id: 1,
     img: FeaturedResources1,
+    type: "Case Study",
+    title: "Cloud Migration Success Story",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "How we helped a Fortune 500 company migrate to AWS, reducing costs by 40%",
   },
   {
     id: 2,
     img: FeaturedResources1,
+    type: "Whitepaper",
+    title: "The Ultimate Guide to DevOps",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "Best practices for implementing CI/CD pipelines and automation in your organization",
   },
   {
     id: 3,
     img: FeaturedResources1,
+    type: "E-book",
+    title: "Cybersecurity in 2024",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "Essential security strategies every business needs to protect against modern threats",
   },
   {
     id: 4,
     img: FeaturedResources1,
+    type: "Webinar",
+    title: "AI & Machine Learning for Business",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "Discover how AI can transform your business operations and decision-making",
   },
   {
     id: 5,
     img: FeaturedResources1,
+    type: "Case Study",
+    title: "Digital Transformation Journey",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "How a retail giant modernized their IT infrastructure and improved customer experience",
   },
   {
     id: 6,
     img: FeaturedResources1,
+    type: "Technical Guide",
+    title: "Microservices Architecture",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "A comprehensive guide to designing and implementing scalable microservices",
   },
   {
     id: 7,
     img: FeaturedResources1,
+    type: "Industry Report",
+    title: "State of Cloud Computing 2024",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "Latest trends, statistics, and insights in cloud technology adoption",
   },
   {
     id: 8,
     img: FeaturedResources1,
+    type: "Checklist",
+    title: "IT Infrastructure Audit",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "Essential checklist to evaluate and optimize your IT infrastructure",
   },
   {
     id: 9,
     img: FeaturedResources1,
+    type: "Template",
+    title: "Project Management Templates",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "Ready-to-use templates for agile project management and sprint planning",
   },
   {
     id: 10,
     img: FeaturedResources1,
+    type: "Video Tutorial",
+    title: "Kubernetes Fundamentals",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "Learn container orchestration from basics to advanced deployment strategies",
   },
   {
     id: 11,
     img: FeaturedResources1,
+    type: "Infographic",
+    title: "Data Privacy Regulations",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "Visual guide to GDPR, CCPA, and global data protection compliance",
   },
   {
     id: 12,
     img: FeaturedResources1,
+    type: "Research Paper",
+    title: "Blockchain in Enterprise",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "Exploring practical applications of blockchain technology in business",
   },
   {
     id: 13,
     img: FeaturedResources1,
+    type: "Tool Comparison",
+    title: "Top 10 DevOps Tools",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "Comprehensive comparison of popular DevOps tools and platforms",
   },
   {
     id: 14,
     img: FeaturedResources1,
+    type: "Best Practices",
+    title: "API Design Guidelines",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "Industry best practices for designing RESTful and GraphQL APIs",
   },
   {
     id: 15,
     img: FeaturedResources1,
+    type: "ROI Calculator",
+    title: "Cloud Migration ROI",
     description:
-      "How to build a scalable application up to 1 million users on AWS",
+      "Calculate your potential savings and benefits from cloud migration",
   },
 ];
 

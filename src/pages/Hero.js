@@ -16,11 +16,11 @@ const Hero = () => {
   return (
     <div className="relative min-h-[90vh] flex items-center overflow-hidden -px-5 sm:-px-[5vw] md:-px-[5vw] lg:-px-[9vw]  ">
       {/* Animated Background */}
-      <div className="absolute inset-0 -z-10 ">
+      {/* <div className="absolute inset-0 -z-10 p-10">
         <div className="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
         <div className="absolute top-0 -right-4 w-72 h-72 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-      </div>
+      </div> */}
 
       <div className="flex flex-col sm:flex-row items-center justify-between w-full p-10">
         <motion.div 

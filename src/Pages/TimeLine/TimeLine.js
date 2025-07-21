@@ -44,7 +44,7 @@ export default function TimeLine() {
     title: step.title,
     content: (
       <div>
-        <p className="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-600">
+        <p className="mb-4 text-xs font-normal text-gray-600 md:text-sm">
           {step.description}
         </p>
       </div>
@@ -72,7 +72,7 @@ export default function TimeLine() {
                   }`}
                 >
                   <div className="bg-white shadow-md rounded-md p-4 text-center w-full">
-                    <h3 className="text-sm font-bold text-pink-600">
+                    <h3 className="text-sm font-bold text-purple-600">
                       #{step.id}{" "}
                       <span className="text-black">{step.title}</span>
                     </h3>
@@ -81,12 +81,12 @@ export default function TimeLine() {
                     </p>
                   </div>
 
-                  <div className="absolute h-10 w-0.5 bg-pink-500 top-[123%] left-1/2 transform -translate-x-1/2"></div>
+                  <div className="absolute h-10 w-0.5 bg-purple-500 top-[123%] left-1/2 transform -translate-x-1/2"></div>
                 </div>
               )
           )}
         </div>
-        <div className="flex justify-between items-center border-t-2 border-pink-500 mx-8 relative">
+        <div className="flex justify-between items-center border-t-2 border-purple-500 mx-8 relative">
           <div className="absolute -right-[3%] -top-5 text-2xl">🏆</div>
         </div>
 
@@ -102,7 +102,7 @@ export default function TimeLine() {
                     }`}
                   >
                     <div className="bg-white shadow-md rounded-md p-4 text-center w-full">
-                      <h3 className="text-sm font-bold text-pink-600">
+                      <h3 className="text-sm font-bold text-purple-600">
                         #{step.id}{" "}
                         <span className="text-black">{step.title}</span>
                       </h3>
@@ -111,7 +111,7 @@ export default function TimeLine() {
                       </p>
                     </div>
 
-                    <div className="absolute h-10 w-0.5 bg-pink-500 bottom-[123%] left-1/2 transform -translate-x-1/2 "></div>
+                    <div className="absolute h-10 w-0.5 bg-purple-500 bottom-[123%] left-1/2 transform -translate-x-1/2 "></div>
                   </div>
                 </>
               )

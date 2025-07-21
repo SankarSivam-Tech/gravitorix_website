@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { assets } from "../assets/assets";
+import { path } from "framer-motion/client";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -22,14 +23,11 @@ const Navbar = () => {
     { path: "/", label: "Home" },
     { path: "/about", label: "About us" },
     { path: "/services", label: "Services" },
-    { path: "/case-studies", label: "Case Studies" },
-    { path: "/blog", label: "Blog" },
-    { path: "/how-it-works", label: "How it Works" },
-    { path: "/hire", label: "Hire" }
+    {path: "/contact", label: "Contact us" },
   ];
 
   return (
-    <motion.div 
+    <motion.div
       className={`ps-[5vw] pe-[5vw] flex justify-between items-center py-5 font-medium sticky top-0 z-40 transition-all duration-300 ${
         scrolled ? " bg-white/90 backdrop-blur-md shadow-md" : ""
       }`}
@@ -38,7 +36,11 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
     >
       <Link to="/" className="flex items-center group">
-        <img src={assets.logo} alt="Company Logo" className="min-w-36 transition-transform group-hover:scale-105" />
+        <img
+          src={assets.logo}
+          alt="Company Logo"
+          className="min-w-36 transition-transform group-hover:scale-105"
+        />
         <p className="text-xl font-bold -ml-[105px] text-[#4A5568] group-hover:text-purple-600 transition-colors">
           Gravitorix
         </p>
@@ -54,7 +56,7 @@ const Navbar = () => {
             }`}
           >
             <p>{link.label}</p>
-            <motion.hr 
+            <motion.hr
               className="w-2/4 h-[2px] bg-purple-600 border-none"
               initial={{ width: 0 }}
               animate={{ width: location.pathname === link.path ? "50%" : 0 }}
@@ -64,7 +66,7 @@ const Navbar = () => {
         ))}
       </ul>
 
-      <button 
+      <button
         onClick={() => navigate("/contact")}
         className="hidden md:block text-white font-semibold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-8 py-2 rounded-full h-10 transition-all duration-300 transform hover:scale-105 hover:shadow-lg"
       >
@@ -91,11 +93,11 @@ const Navbar = () => {
             onClick={() => setVisible(false)}
             className="flex justify-end p-6 cursor-pointer"
           >
-            <motion.img 
+            <motion.img
               whileTap={{ scale: 0.9 }}
-              src={assets.cross_icon} 
-              className="w-6" 
-              alt="close" 
+              src={assets.cross_icon}
+              className="w-6"
+              alt="close"
             />
           </div>
 
@@ -111,7 +113,9 @@ const Navbar = () => {
                   to={link.path}
                   onClick={() => setVisible(false)}
                   className={`px-6 py-3 rounded-full inline-block hover:bg-purple-50 hover:text-purple-600 transition-all ${
-                    location.pathname === link.path ? "text-purple-600 bg-purple-50" : ""
+                    location.pathname === link.path
+                      ? "text-purple-600 bg-purple-50"
+                      : ""
                   }`}
                 >
                   {link.label}

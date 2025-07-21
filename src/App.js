@@ -5,9 +5,11 @@ import HomePage from './Pages/HomePage';
 import AboutPage from './Pages/AboutPage';
 import ServicesPage from './Pages/ServicesPage';
 import ContactPage from './Pages/ContactPage';
+import ResourceDetail from './Pages/ResourceDetail';
 import NotFound from './Pages/NotFound';
 import ScrollToTop from './Components/ScrollToTop';
 import BackToTop from './Components/BackToTop';
+import SharedLayout from './Components/SharedLayout';
 
 function App() {
   useEffect(() => {
@@ -22,11 +24,15 @@ function App() {
         <div className=" ">
           <Navbar />
           <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/services" element={<ServicesPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="*" element={<NotFound />} />
+            <Route element={<SharedLayout />}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/hire" element={<ContactPage />} />
+              {/* <Route path="/resource/:id" element={<ResourceDetail />} /> */}
+              <Route path="*" element={<NotFound />} />
+            </Route>
           </Routes>
         </div>
         <BackToTop />

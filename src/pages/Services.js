@@ -9,7 +9,9 @@ const Services = () => {
   useEffect(() => {
     const updateCardsToShow = () => {
       if (window.innerWidth >= 1024) {
-        setCardsToShow(services.length);
+        setCardsToShow(4);
+      } else if (window.innerWidth >= 768) {
+        setCardsToShow(2);
       } else {
         setCardsToShow(1);
       }
@@ -22,68 +24,103 @@ const Services = () => {
 
   const left_arrow = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? services.length - 1 : prevIndex - 1
+      prevIndex === 0 ? Math.ceil(services.length / cardsToShow) - 1 : prevIndex - 1
     );
   };
 
   const right_arrow = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % services.length);
+    setCurrentIndex((prevIndex) => 
+      (prevIndex + 1) % Math.ceil(services.length / cardsToShow)
+    );
   };
 
   return (
-    <>
-
-      <div className="relative w-full p-6 py-10 bg-[#F9F9FF]">
-        <div className="absolute -top-9 left-[32%] transform -translate-x-1/2 w-[72px] h-[36px] overflow-hidden z-50">
+    <div className="relative w-full px-4 sm:px-6 lg:px-8 py-16 bg-[#F9F9FF]">
+      <div className="max-w-7xl mx-auto">
+        <div className="absolute -top-9 left-1/2 transform -translate-x-1/2 w-[72px] h-[36px] overflow-hidden z-10">
           <div className="w-[72px] h-[72px] rounded-full bg-gradient-to-br from-pink-500 to-purple-700"></div>
         </div>
 
-        <h1 className="text-2xl sm:text-4xl font-bold text-center mb-2">
-          Services we offer
-        </h1>
+        <div className="text-center mb-12">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Services we offer
+          </h1>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Comprehensive solutions tailored to elevate your business
+          </p>
+        </div>
 
-
-
-        <article className="flex justify-end mb-8">
-          <button onClick={left_arrow} className="bg-gray-200 p-3 mr-2">
-            <img src={assets.left_arrow} alt="previous" />
+        <div className="flex justify-end mb-8 gap-2">
+          <button 
+            onClick={left_arrow} 
+            className="bg-white hover:bg-gray-50 shadow-md rounded-full p-3 transition-all duration-200 hover:shadow-lg"
+          >
+            <img src={assets.left_arrow} alt="previous" className="w-5 h-5" />
           </button>
-
-          <button onClick={right_arrow} className="bg-gray-200 p-3 mr-2">
-            <img src={assets.right_arrow} alt="next" />
+          <button 
+            onClick={right_arrow} 
+            className="bg-white hover:bg-gray-50 shadow-md rounded-full p-3 transition-all duration-200 hover:shadow-lg"
+          >
+            <img src={assets.right_arrow} alt="next" className="w-5 h-5" />
           </button>
-        </article>
+        </div>
 
-        <article className="overflow-hidden">
-          <section
-            className="flex gap-8 transition-transform duration-500 ease-in-out"
+        <div className="overflow-hidden px-4">
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
             style={{
-              transform: `translateX(-${(currentIndex * 100) / cardsToShow}%)`,
+              transform: `translateX(-${currentIndex * 100}%)`,
             }}
           >
-            {services.map((service, index) => (
-              <motion.section
-                key={index}
-                className="relative flex-shrink-0 w-full sm:w-1/2 lg:w-1/4 hover:border hover:border-red-500 rounded-md  transition-all duration-100 ease-in-out"
-                whileHover={{ scale: 1.05, y: 15 }}
-              >
-              <div className="size-10 mx-5 my-3 border border-[#DE4396] rounded-full p-2">
-                {service.image}
+            {Array.from({ length: Math.ceil(services.length / cardsToShow) }).map((_, groupIndex) => (
+              <div key={groupIndex} className="flex gap-6 min-w-full p-4">
+                {services.slice(groupIndex * cardsToShow, (groupIndex + 1) * cardsToShow).map((service, index) => (
+                  <motion.div
+                    key={groupIndex * cardsToShow + index}
+                    className="flex-1 min-w-0"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                  >
+                    <motion.div
+                      className="h-full bg-white rounded-xl p-6 shadow-sm border-2 border-transparent hover:border-pink-500 transition-all duration-300 cursor-pointer"
+                      whileHover={{ 
+                        scale: 1.02,
+                        boxShadow: "0 10px 30px rgba(0,0,0,0.1)"
+                      }}
+                    >
+                      <div className="w-14 h-14 mb-4 border-2 border-[#DE4396] rounded-full p-3 flex items-center justify-center bg-pink-50">
+                        {service.image}
+                      </div>
+                      <h3 className="font-semibold text-lg text-gray-900 mb-3 bg-gradient-to-r from-pink-500 to-purple-700 bg-clip-text text-transparent">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed">
+                        {service.description}
+                      </p>
+                    </motion.div>
+                  </motion.div>
+                ))}
               </div>
-
-                <h3 className="font-medium text-left pl-4 text-gradient1">
-                  {service.title}
-                </h3>
-
-                <p className="p-4 text-gray-400 text-md ">
-                  {service.description}
-                </p>
-              </motion.section>
             ))}
-          </section>
-        </article>
+          </div>
+        </div>
+
+        <div className="flex justify-center mt-8 gap-2">
+          {Array.from({ length: Math.ceil(services.length / cardsToShow) }).map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentIndex(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentIndex === index 
+                  ? "w-8 bg-gradient-to-r from-pink-500 to-purple-700" 
+                  : "bg-gray-300 hover:bg-gray-400"
+              }`}
+            />
+          ))}
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

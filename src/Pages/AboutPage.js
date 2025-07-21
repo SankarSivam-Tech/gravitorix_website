@@ -2,7 +2,6 @@ import { motion } from 'framer-motion';
 import AboutUs from './About';
 import MeetThePeople from './MeetThePeople';
 import TimeLine from './TimeLine/TimeLine';
-import ContactFooter from './ContactFooter';
 
 const AboutPage = () => {
   return (
@@ -14,7 +13,6 @@ const AboutPage = () => {
       <AboutUs />
       <MeetThePeople />
       <TimeLine />
-      <ContactFooter />
     </motion.div>
   );
 };

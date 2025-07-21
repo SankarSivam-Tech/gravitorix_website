@@ -21,11 +21,17 @@ const Card = ({ featureResource }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             <div className="p-6">
+                <span className="inline-block px-3 py-1 text-xs font-semibold text-purple-600 bg-purple-100 rounded-full mb-3">
+                    {featureResource.type}
+                </span>
+                <h3 className="text-lg font-semibold text-gray-800 mb-2 line-clamp-2">
+                    {featureResource.title}
+                </h3>
                 <p className="text-sm text-slate-600 group-hover:text-slate-800 transition-colors line-clamp-3">
                     {featureResource.description}
                 </p>
                 <Link 
-                    to="/blog/post" 
+                    to={`/resource/${featureResource.id}`} 
                     className="mt-4 float-right inline-flex items-center gap-2 text-purple-600 font-medium group-hover:text-purple-700 transition-colors"
                 >
                     Read More 
