@@ -1,15 +1,7 @@
-import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
 import Navbar from './Components/Navbar';
-import HomePage from './Pages/HomePage';
-import AboutPage from './Pages/AboutPage';
-import ServicesPage from './Pages/ServicesPage';
-import ContactPage from './Pages/ContactPage';
-import ResourceDetail from './Pages/ResourceDetail';
-import NotFound from './Pages/NotFound';
-import ScrollToTop from './Components/ScrollToTop';
+import SinglePage from './Pages/SinglePage';
 import BackToTop from './Components/BackToTop';
-import SharedLayout from './Components/SharedLayout';
 
 function App() {
   useEffect(() => {
@@ -19,21 +11,10 @@ function App() {
 
   return (
     <>
-      <ScrollToTop />
-      <div className="min-h-screen">
+      <div className="min-h-screen overflow-x-hidden bg-gray-50">
         <div className=" ">
           <Navbar />
-          <Routes>
-            <Route element={<SharedLayout />}>
-              <Route path="/" element={<HomePage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/services" element={<ServicesPage />} />
-              <Route path="/contact" element={<ContactPage />} />
-              <Route path="/hire" element={<ContactPage />} />
-              {/* <Route path="/resource/:id" element={<ResourceDetail />} /> */}
-              <Route path="*" element={<NotFound />} />
-            </Route>
-          </Routes>
+          <SinglePage />
         </div>
         <BackToTop />
       </div>
