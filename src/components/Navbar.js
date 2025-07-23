@@ -44,7 +44,7 @@ const Navbar = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      const navbarOffset = 50;
+      const navbarOffset = 0;
       const y =
         element.getBoundingClientRect().top + window.pageYOffset - navbarOffset;
 
@@ -145,7 +145,7 @@ const Navbar = () => {
                     activeSection === link.id
                       ? "text-purple-600 bg-purple-50"
                       : ""
-                  }`}
+                  } ${visible ? "block" : "hidden"}`}
                 >
                   {link.label}
                 </button>

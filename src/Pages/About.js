@@ -38,7 +38,7 @@ const AboutUs = () => {
   const containerRef = React.useRef(null);
 
   return (
-    <section className="bg-white py-20" ref={containerRef}>
+    <section className="bg-white py-10" ref={containerRef}>
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
